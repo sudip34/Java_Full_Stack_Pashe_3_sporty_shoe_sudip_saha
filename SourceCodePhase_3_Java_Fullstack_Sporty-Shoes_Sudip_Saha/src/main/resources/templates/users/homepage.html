@@ -1,0 +1,51 @@
+<!DOCTYPEHTML>
+<!-- insert thymeleaf tag -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+		<!-- Bootstrap CSS style -->
+		    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap CSS style -->
+		<title>Welcome Page</title>
+</head>
+<body>
+	<div class="container-fluid"><!-- Bootstrap CSS style -->
+		<h3>Welcome to Admin Page</h3>
+		<hr>
+				
+				<hr>
+		<a th:href="@{/user/list}"
+		 		class="btn btn-primary btn-sm mb-3">All Users List </a>
+		 
+		 <hr>
+		 
+		 <a th:href="@{/user/shoes}"
+				class="btn btn-primary btn-sm mb-3">  Shoes </a>
+				<hr>
+				<!-- Add  a button for search by  purchase date-->
+		 <form th:action="@{/user/search}" class="form-inline">
+		  <input class="form-control  ml-3 mr-sm-2 mb-3" type="search"
+				name="date" placeholder="date (DD-MM-YY)" />
+	
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+		
+		</form>
+		<hr>
+						<!-- Add   button for search by shoe category-->
+		 <form th:action="@{/user/searchByCategory}" class="form-inline">
+		  <input class="form-control  ml-3 mr-sm-2 mb-3" type="search"
+				name="category" placeholder="Shoe Category" />
+	
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+		
+		</form>
+		
+		
+	</div>
+</body>	
+
+</html>

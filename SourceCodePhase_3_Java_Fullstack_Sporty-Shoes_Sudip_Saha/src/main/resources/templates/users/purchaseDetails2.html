@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<!-- insert thymeleaf tag -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+   <title>Shoes Directory</title>
+		<!-- Bootstrap CSS style -->
+		    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap CSS style -->
+		<title>Purchase Report</title>
+</head>
+
+<body>
+	<div class="container-fluid"><!-- Bootstrap CSS style -->
+	<h3>Purchase Report</h3>
+		<hr>
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark" >
+				<tr>
+					<th>User Name</th>
+					<th>User Age</th>
+					<th>Date</th>
+					<th>Size</th>
+					<th>Price ($) </th>
+
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="tempUser : ${purchaseDeatails2}">
+					<td th:text="${tempUser.users.username}" />
+					<td th:text="${tempUser.users.Age}" />
+					<td th:text="${tempUser.date}" />
+					<td th:text="${tempUser.shoes.size}" />
+					<td th:text="${tempUser.shoes.price}" />
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</body>
+
+</html>

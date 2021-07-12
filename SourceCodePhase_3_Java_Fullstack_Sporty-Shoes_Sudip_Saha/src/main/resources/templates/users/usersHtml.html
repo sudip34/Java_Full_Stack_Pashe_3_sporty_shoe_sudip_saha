@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!-- insert thymeleaf tag -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+   		<!-- Bootstrap CSS style -->
+		    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap CSS style -->
+    
+		<title>User Directory</title>
+</head>
+
+<body>
+	<div class="container-fluid">
+	<h3>User Directory</h3>
+						<hr>
+				<!-- Add  a button for search option-->
+		 <form th:action="@{/user/searchUser}" class="form-inline">
+		  <input class="form-control  ml-3 mr-sm-2 mb-3" type="search"
+				name="username" placeholder="Username" />
+	
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+		
+		</form>
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th>User Name</th>
+					<th>Age</th>
+					
+					
+				
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="tempUser : ${userList}">
+					<td th:text="${tempUser.username}" />
+					<td th:text="${tempUser.Age}" />
+					
+					
+				</tr>
+			</tbody>
+
+		</table>
+		<hr>
+		<a th:href="@{/user/home}"
+				class="btn btn-primary btn-sm mb-3">  Back to home </a>
+				
+		</div>
+
+</body>
+
+</html>

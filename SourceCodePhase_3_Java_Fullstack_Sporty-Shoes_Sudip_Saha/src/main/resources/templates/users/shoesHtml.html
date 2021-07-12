@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<!-- insert thymeleaf tag -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+   
+		<title>Shoes Directory</title>
+		<!-- Bootstrap CSS style -->
+		    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap CSS style -->
+     
+</head>
+
+<body>
+	<div class="container-fluid"><!-- Bootstrap CSS style -->
+
+	<h3>Shoes Directory</h3>
+		<hr>
+					<a th:href="@{/user/showFormForAdd}"
+				class="btn btn-primary btn-sm mb-3"> Add Shoes </a>
+
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Category Name</th>
+					<th>Shoe Size</th>
+					<th>Price</th>
+					<th>Action</th>
+				
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="tempShoes : ${shoeList}">
+					<td th:text="${tempShoes.category}" />
+					<td th:text="${tempShoes.size}" />
+					
+					<td th:text="${#numbers.listFormatCurrency(tempShoes.price)}"/>
+					
+					<td>
+						<a th:href="@{/user/showFormForUpdate(shoesId=${tempShoes.pid})}"
+						class="btn btn-info btn-sm">
+						 Update </a>
+						 <a  th:href="@{/user/delete(shoesId=${tempShoes.pid})}"
+						 class="btn btn-danger btn-sm"
+						 onclick="if(!(confirm('Do u want to delete this entry?'))) return false">
+						 Delete</a>
+						
+					<td />
+					
+				</tr>
+				
+				
+			</tbody>
+
+		</table>
+		<hr>
+		<a th:href="@{/user/home}"
+				class="btn btn-primary btn-sm mb-3">  Back to home </a>
+	</div>
+</body>
+
+</html>
